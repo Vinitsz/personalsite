@@ -1,14 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
     const nameElement = document.getElementById("name");
     const cursorElement = document.querySelector(".cursor");
-    const name = "VINIT ZANJE";
+    const greetings = [
+        { text: "नमस्कार", font: "'Baloo Tamma 2', cursive" }, // Marathi
+        { text: "Hello", font: "Roboto, sans-serif" },
+        { text: "Hola", font: "'Dancing Script', cursive" },
+        { text: "Bonjour", font: "'Montserrat', sans-serif" },
+        { text: "こんにちは", font: "'Noto Sans JP', sans-serif" },
+        { text: "Ciao", font: "'Dancing Script', cursive" },
+        { text: "안녕하세요", font: "'Noto Sans JP', sans-serif" },
+        { text: "Hallo", font: "Roboto, sans-serif" },
+        { text: "Olá", font: "'Montserrat', sans-serif" },
+        { text: "Привет", font: "Roboto, sans-serif" },
+        { text: "你好", font: "'Noto Sans JP', sans-serif" },
+        { text: "नमस्ते", font: "'Baloo Tamma 2', cursive" } // Hindi
+    ];
+
     let index = 0;
     let isAdding = true;
+    let greetingIndex = 0;
 
     function type() {
+        const greeting = greetings[greetingIndex];
+        nameElement.style.fontFamily = greeting.font;
+
         if (isAdding) {
-            if (index < name.length) {
-                nameElement.textContent += name[index++];
+            if (index < greeting.text.length) {
+                nameElement.textContent += greeting.text[index++];
                 setTimeout(type, 200);
             } else {
                 isAdding = false;
@@ -16,10 +34,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         } else {
             if (index > 0) {
-                nameElement.textContent = name.substring(0, --index);
+                nameElement.textContent = greeting.text.substring(0, --index);
                 setTimeout(type, 100);
             } else {
                 isAdding = true;
+                greetingIndex = (greetingIndex + 1) % greetings.length;
                 setTimeout(type, 200);
             }
         }
