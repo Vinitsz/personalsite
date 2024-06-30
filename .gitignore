@@ -1,0 +1,9 @@
+# Exclude node_modules directory
+node_modules/
+
+# Exclude dist directory
+dist/
+
+# Exclude package-lock.json file
+package-lock.json
+.DS_Store

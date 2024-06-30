@@ -8,11 +8,14 @@ body {
     background-color: #121212;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; /* Prevent unwanted scrolling */
 }
 
 .container {
     text-align: center;
     padding: 20px;
+    width: 100%; /* Ensure container does not exceed viewport width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 header h1 {
@@ -30,8 +33,8 @@ header h1 {
 
 .profile-image {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 100%; /* Adjust width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -64,18 +67,19 @@ header h1 {
     align-items: center;
     height: 2.5em; /* Fixed height to prevent shifting */
     margin-bottom: 20px;
+    font-size: 1.5em; /* Ensure consistent font size */
 }
 
 #name {
-    font-size: 2em;
     white-space: nowrap;
     overflow: hidden;
-    border-right: none;
+    border-right: 0.15em solid #fff; /* Add a border to mimic typing cursor */
 }
 
 .cursor {
     font-size: 2em;
     animation: blink-caret 0.75s step-end infinite;
+    margin-left: -0.15em; /* Adjust margin to overlay the cursor on the border */
 }
 
 @keyframes blink-caret {
@@ -90,11 +94,13 @@ nav.social-icons {
 nav.social-icons ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav.social-icons li {
-    display: inline;
-    margin: 0 10px;
+    margin: 10px; /* Increase margin for better spacing */
 }
 
 .icon {
@@ -121,8 +127,8 @@ nav.social-icons li {
     }
 
     .profile-image {
-        width: 150px;
-        height: 150px;
+        width: 100%; /* Ensure image fits within container */
+        height: auto; /* Maintain aspect ratio */
     }
 
     #name, .cursor {
@@ -132,11 +138,15 @@ nav.social-icons li {
     .icon {
         font-size: 1.5em;
     }
+
+    nav.social-icons ul {
+        justify-content: space-around; /* Adjust spacing for icons */
+    }
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.2em;
+        font-size: 1.8em;
     }
 
     .image-container {
@@ -145,8 +155,8 @@ nav.social-icons li {
     }
 
     .profile-image {
-        width: 120px;
-        height: 120px;
+        width: 100%; /* Ensure image fits within container */
+        height: auto; /* Maintain aspect ratio */
     }
 
     #name, .cursor {
@@ -155,5 +165,16 @@ nav.social-icons li {
 
     .icon {
         font-size: 1.2em;
+    }
+
+    nav.social-icons ul {
+        justify-content: space-between; /* Distribute icons evenly */
+        flex-wrap: wrap;
+    }
+
+    nav.social-icons li {
+        font-size: xx-large;
+        flex: 0 0 30%; /* Allow icons to wrap and take 30% width each */
+        margin: 5px; /* Adjust margin for better spacing */
     }
 }

@@ -1,3 +1,4 @@
+ //import './styles.css';
 document.addEventListener("DOMContentLoaded", function() {
     const nameElement = document.getElementById("name");
     const cursorElement = document.querySelector(".cursor");
