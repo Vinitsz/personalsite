@@ -163,6 +163,12 @@ footer {
 }
 
 @media (max-width: 480px) {
+
+
+    body {
+        height: 80vh;
+    }
+
     header h1 {
         font-size: 1.8em;
     }
