@@ -132,8 +132,8 @@ footer {
     margin-top: 10px;
 }
 
-#ip-address, #server-info {
-    margin-top: 5px;
+ #server-info {
+    margin-top: 20px;
     font-size: 0.2em;
     color: #fff;
 }
