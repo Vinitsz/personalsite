@@ -132,6 +132,12 @@ footer {
     margin-top: 10px;
 }
 
+#ip-address, #server-info {
+    margin-top: 5px;
+    font-size: 0.2em;
+    color: #fff;
+}
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
